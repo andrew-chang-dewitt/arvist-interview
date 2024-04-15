@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react";
-import { TodoItemProps } from "./TodoItem";
+import { TodoItem } from "./TodoList";
 
 export type NewItemProps = {
-  items: TodoItemProps[];
-  setItemsHandler(items: TodoItemProps[]): void;
+  items: TodoItem[];
+  setItemsHandler(items: TodoItem[]): void;
 };
 
 export function NewItem({ items, setItemsHandler }: NewItemProps) {
