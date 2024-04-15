@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+import styles from "./TodoList.module.css";
+
 import { Item } from "./TodoItem";
 import { NewItem } from "./NewItem";
 
@@ -28,8 +31,8 @@ export function List() {
   };
 
   return (
-    <>
-      <ul>
+    <div className={styles.listParent}>
+      <ul className={styles.list}>
         <li>
           <NewItem items={items} setItemsHandler={setItems} />
         </li>
@@ -52,6 +55,6 @@ export function List() {
         )}{" "}
         items remaining
       </p>
-    </>
+    </div>
   );
 }

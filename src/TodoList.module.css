@@ -1,0 +1,14 @@
+.listParent {
+  width: 100vw;
+  max-width: 20em;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list > li {
+  margin-bottom: 0.5em;
+}

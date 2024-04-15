@@ -1,0 +1,12 @@
+.item {
+  width: 100%;
+  display: flex;
+}
+
+.item > input[type="checkbox"] {
+  width: 1.5em;
+}
+
+.item > span {
+  flex-grow: 1;
+}

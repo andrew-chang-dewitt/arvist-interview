@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+import styles from "./Item.module.css";
+
 import { TodoItem } from "./TodoList";
 
 export type ItemProps = {
@@ -18,14 +21,14 @@ export function Item({
   const { desc, completed } = item;
 
   return (
-    <li>
+    <li className={styles.item}>
       <input
         type="checkbox"
         value={value}
         checked={completed}
         onChange={(_) => completeHandler(index)}
       />{" "}
-      {desc}
+      <span>{desc}</span>
       <button onClick={(_) => deleteHandler(index)}>Delete</button>
     </li>
   );

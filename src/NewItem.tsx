@@ -1,4 +1,6 @@
 import { FormEvent, useState } from "react";
+
+import styles from "./NewItem.module.css";
 import { TodoItem } from "./TodoList";
 
 export type NewItemProps = {
@@ -20,7 +22,7 @@ export function NewItem({ items, setItemsHandler }: NewItemProps) {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form className={styles.form} onSubmit={submitHandler}>
       <input
         type="text"
         name="desc"
