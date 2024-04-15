@@ -9,6 +9,7 @@ export type ItemProps = {
   item: TodoItem;
   completeHandler(index: number): void;
   deleteHandler(index: number): void;
+  updateHandler(index: number, newDesc: string): void;
 };
 
 export function Item({
@@ -16,6 +17,7 @@ export function Item({
   item,
   completeHandler,
   deleteHandler,
+  updateHandler,
 }: ItemProps) {
   let [value, _setValue] = useState("");
   const { desc, completed } = item;
@@ -28,7 +30,15 @@ export function Item({
         checked={completed}
         onChange={(_) => completeHandler(index)}
       />{" "}
-      <span>{desc}</span>
+      <input
+        type="text"
+        value={desc}
+        onChange={(e) => {
+          e.preventDefault();
+
+          updateHandler(index, e.target.value);
+        }}
+      />
       <button onClick={(_) => deleteHandler(index)}>Delete</button>
     </li>
   );

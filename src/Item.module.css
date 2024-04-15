@@ -5,8 +5,10 @@
 
 .item > input[type="checkbox"] {
   width: 1.5em;
+  margin-right: 0.5em;
 }
 
-.item > span {
+.item > input[type="text"] {
   flex-grow: 1;
+  margin-right: 0.5em;
 }

@@ -12,6 +12,13 @@ export type TodoItem = {
 
 export function List() {
   let [items, setItems] = useState<TodoItem[]>([]);
+  const updateHandler = (index: number, newDesc: string) => {
+    const newItems = items.map((item, idx) =>
+      index === idx ? { ...item, desc: newDesc } : item
+    );
+
+    setItems(newItems);
+  };
   const completeHandler = (index: number) => {
     const newItems = items.map((item, idx) =>
       index === idx ? { ...item, completed: !item.completed } : item
@@ -29,6 +36,11 @@ export function List() {
 
     setItems(newItems);
   };
+  const clearCompleted = () => {
+    const newItems = items.filter((item) => !item.completed);
+
+    setItems(newItems);
+  };
 
   return (
     <div className={styles.listParent}>
@@ -37,24 +49,26 @@ export function List() {
           <NewItem items={items} setItemsHandler={setItems} />
         </li>
         {items.map((item, index) => (
-          <li>
-            <Item
-              item={item}
-              index={index}
-              completeHandler={completeHandler}
-              deleteHandler={deleteHandler}
-            />
-          </li>
+          <Item
+            item={item}
+            index={index}
+            completeHandler={completeHandler}
+            deleteHandler={deleteHandler}
+            updateHandler={updateHandler}
+          />
         ))}
       </ul>
-      <p>
-        {items.reduce<number>(
-          (incompleteCount, currentItem) =>
-            currentItem.completed ? incompleteCount : incompleteCount + 1,
-          0
-        )}{" "}
-        items remaining
-      </p>
+      <div className={styles.footer}>
+        <p>
+          {items.reduce<number>(
+            (incompleteCount, currentItem) =>
+              currentItem.completed ? incompleteCount : incompleteCount + 1,
+            0
+          )}{" "}
+          items remaining
+        </p>
+        <button onClick={clearCompleted}>Clear completed</button>
+      </div>
     </div>
   );
 }
