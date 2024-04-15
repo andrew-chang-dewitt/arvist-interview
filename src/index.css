@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "Cascadia Code";
+  src:
+    url("src/assets/CascadiaCode.woff2") format("woff2"),
+    url("src/assets/CascadiaCode.ttf") format("truetype");
+  font-display: swap;
+}
+
+/*
+ * variables
+ *
+ */
+
+:root {
+  /* font faces */
+  --font-family-serif: "Cascadia Code", serif;
+  --font-family-sans: Montserrat, sans-serif;
+  /* font sizes */
+  --font-size-tiny: 0.75rem;
+  --font-size-small: 1rem;
+  --font-size-regular: 1.25rem;
+  --font-size-regular-medium: 1.75rem;
+  --font-size-medium: 2rem;
+  --font-size-large: 2.75rem;
+  --font-size-huge: 3.5rem;
+  --font-size-base-size-desktop: 16px;
+  --font-size-base-size-mobile: 14px;
+  --font-weight-sans-normal: 400;
+  --font-weight-sans-normal-bold: 500;
+  --font-weight-sans-semi-bold: 600;
+  --font-weight-serif-normal: var(--weight-sans-normal);
+  --font-weight-serif-bold: 700;
+  --font-weight-mono-semi-bold: 600;
+  --font-weight-mono-regular: 400;
+  --font-weight-mono-light: 300;
+  /* colors */
+  --color-action: #e69d45; /* orange */
+  --color-action-dark: #ab6400;
+  --color-dark: #373f42; /* grey */
+  --color-dark-light: #e4ebeb; /* light-grey */
+  --color-dark-light-alternate: #83898c; /* alternate light-grey */
+  --color-light: #fffdfa; /* #F7F4F0 /* white-ish */
+  --color-accent1: #308695; /* blue */
+  --color-accent2: #d45769; /* red */
+  --color-highlight: #66523d; /*orange, under-saturated */
+}
+
+/*
+ * styles
+ *
+ */
+
+:root {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base-desktop);
+  color: var(--color-light);
+  background-color: var(--color-dark);
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-serif-normal);
+}
+
+h1 {
+  font-size: var(--font-size-huge);
+}
+
+h2 {
+  font-size: var(--font-size-large);
+}
+
+h3 {
+  font-size: var(--font-size-regular-medium);
+}
+
+h4 {
+  font-size: var(--font-size-regular);
+}
+
+h5 {
+  font-size: var(--font-size-small);
+}
+
+h6 {
+  font-size: var(--font-size-tiny);
+}
+
+input,
+textarea,
+button {
+  padding: 0.5rem;
+  border-radius: 0.33rem;
+}
+
+input,
+textarea {
+  border: transparent;
+  background-color: var(--color-dark-light);
+}
+
+button {
+  background-color: var(--color-dark-light);
+  color: var(--color-dark);
+  font-weight: var(--font-weight-sans-semi-bold);
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: var(--color-action);
+  color: var(--color-dark);
+}
+
+button:hover,
+button[type="submit"]:hover {
+  background-color: var(--color-accent1);
+}
+
+button[type="submit"]:hover {
+  color: var(--color-light);
+}
+
+*:focus {
+  outline: none;
+}
+
+button:focus,
+a:focus,
+*[role="button"]:focus {
+  box-shadow: 0 0 3px 1px var(--color-accent1);
+}
+
+a,
+span[role="button"] {
+  color: var(--color-action-dark);
+  text-decoration: none;
+}
+
+a:hover,
+span[role="button"]:hover {
+  color: var(--color-accent1);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+  }
+  button {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
+}
