@@ -113,6 +113,7 @@ input,
 textarea {
   border: transparent;
   background-color: var(--color-dark-light);
+  color: var(--color-dark);
 }
 
 button {
